@@ -1,5 +1,7 @@
 'use strict';
 
+import { User } from './User.js';
+
 export class Subscriber extends User{
     #pages;
     #groups;
