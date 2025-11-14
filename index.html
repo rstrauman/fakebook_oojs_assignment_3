@@ -9,6 +9,7 @@
         <title>Fakebook</title>
         <link rel="icon" href="./assets/media/favicon.png?v=2" type="image/x-icon">
         <link rel="Stylesheet" href="assets/styles/style.css" media="all">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
 <body>
     <header>
@@ -29,26 +30,31 @@
     <main>
         <div class="container">
             <div id="modal" class="hidden">
-                    <div class="modal-content">
-                        <span id="close-modal">&times;</span>
-                        <div class="modal-header">
-                            <img src="" alt="profile picture" id="modal-picture">
-                            <h2 id="modal-name"></h2>
-                            <div id="modal-body"></div>
-                        </div>
+                <div class="modal-content">
+                    <span id="close-modal">&times;</span>
+                    <div class="modal-header">
+                        <img src="" alt="profile picture" id="modal-picture">
+                        <h2 id="modal-name"></h2>
+                        <div id="modal-body"></div>
                     </div>
                 </div>
-            <form action="/submit" method="POST">
-                <textarea id="new-post" name="new-post" placeholder="What's up?" rows="4" cols="50"></textarea>
-                <div class="img-post-container">
-                    <input type="file" id="photo-upload" accept="image/*" hidden>
-                    <label for=photo-upload class="upload-icon">
-                        <img src="" alt="photo-img">
-                    </label>
-                    <button type="button" id="post-btn">Post</button>
+            </div>
+            <div class="content-container">
+                <form action="/submit" method="POST">
+                    <textarea id="new-post" name="new-post" placeholder="What's up?" rows="4" cols="50"></textarea>
+                    <div class="img-post-container">
+                        <input type="file" id="photo-upload" accept="image/*" hidden>
+                        <label for=photo-upload class="upload-icon">
+                            <i class="fa-regular fa-image"></i>
+                        </label>
+                        <button type="button" id="post-btn">Post</button>
+                    </div>
+                </form>
+                <div class="post-flex-container">
+                    <div class="post-container hidden"></div>
+                    <div class="post-container hidden"></div>
                 </div>
-                <div class="post-container"></div>
-            </form>
+            </div>
         </div>
     </main>
     <script src="./assets/script/app.js" defer></script>

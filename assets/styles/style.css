@@ -1,11 +1,10 @@
 @import './container.css';
 
-header {
-    background-color: #1f2229;
-    height: 60px;
-}
+/*************************************/
+/*           Container               */
+/*************************************/
 
-.header-container, ul {
+.header-container, ul, .content-container, .img-post-container, .post-flex-container {
     display: flex;
 }
 
@@ -14,6 +13,15 @@ header {
     display: flex;
     justify-content: space-between;
     place-items: center;
+}
+
+/*************************************/
+/*             Header                */
+/*************************************/
+
+header {
+    background-color: #1f2229;
+    height: 60px;
 }
 
 h1 {
@@ -48,4 +56,80 @@ li:hover {
     height: 45px;
     width: 45px;
     border-radius: 50%;
+}
+
+/*************************************/
+/*              Main                 */
+/*************************************/
+
+main {
+    background-color: #14161d;
+}
+
+.content-container {
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+}
+
+form {
+    background-color: #1f2229;
+    width: 600px;
+    height: 200px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+textarea {
+    background-color: #1f2229;
+    width: 100%;
+    height: 70%;
+    text-decoration: none;
+    resize: none;
+    padding-bottom: 10px;
+    color: #fff;
+}
+
+textarea::-webkit-scrollbar {
+    width: 5px;
+}
+
+textarea::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+}
+
+i {
+    color: #fff;
+    font-size: 32px;
+}
+
+.img-post-container {
+    justify-content: space-between;
+    place-items: center;
+}
+
+button {
+    padding: 8px 20px;
+    border-radius: 5px;
+    background-color: #2993ff;
+    color: #fff;
+    font-weight: 600;
+}
+
+.post-flex-container {
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post-container {
+    background-color: #fff;
+    width: 600px;
+    height: auto;
+    padding: 15px;
+    border-radius: 5px;
 }
