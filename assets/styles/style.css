@@ -1,1 +1,51 @@
 @import './container.css';
+
+header {
+    background-color: #1f2229;
+    height: 60px;
+}
+
+.header-container, ul {
+    display: flex;
+}
+
+.header-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    place-items: center;
+}
+
+h1 {
+    color: #3c96f2;
+    font-family: Helvetica, sans-serif;
+    line-height: 60px;
+}
+
+ul {
+    list-style: none;
+    height: 60px;
+    align-items: center;
+    line-height: 60px;
+}
+
+li {
+    transition: all 0.25s ease-in-out;
+}
+
+li:hover {
+    background-color: #2c303a;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #fff;
+    height: 100%;
+    padding: 0 20px;
+}
+
+#profile-pic {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+}
