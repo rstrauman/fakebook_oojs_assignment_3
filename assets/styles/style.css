@@ -58,6 +58,10 @@ li:hover {
     border-radius: 50%;
 }
 
+#profile-pic:hover {
+    cursor: pointer;
+}
+
 /*************************************/
 /*              Main                 */
 /*************************************/
@@ -132,4 +136,34 @@ button {
     height: auto;
     padding: 15px;
     border-radius: 5px;
+}
+
+.modal-picture {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+#modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.modal-content {
+    padding: 240px 180px;
+    border-radius: 5px;;
+    background-color: #1f2229;;
+}
+
+/* .modal.hidden {
+    display: none;
+} */
+
+#modal.hidden, .modal-picture.hidden, .modal-content.hidden {
+    display: none;
 }

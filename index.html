@@ -29,16 +29,17 @@
     </header>
     <main>
         <div class="container">
-            <div id="modal" class="hidden">
-                <div class="modal-content">
+            <div id="modal" class="modal hidden">
+                <div class="modal-content hidden">
                     <span id="close-modal">&times;</span>
                     <div class="modal-header">
-                        <img src="" alt="profile picture" id="modal-picture">
-                        <h2 id="modal-name"></h2>
+                        <img src="./assets/media/sunset.jpeg" alt="profile picture" class="modal-picture hidden">
+                        <div id="modal-name"></div>
                         <div id="modal-body"></div>
                     </div>
                 </div>
             </div>
+        </div>
             <div class="content-container">
                 <form action="/submit" method="POST">
                     <textarea id="new-post" name="new-post" placeholder="What's up?" value="" rows="4" cols="50"></textarea>
