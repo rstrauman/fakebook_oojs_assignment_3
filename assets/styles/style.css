@@ -4,7 +4,7 @@
 /*           Container               */
 /*************************************/
 
-.header-container, ul, .content-container, .img-post-container, .post-flex-containerm\, .post-user-info {
+.header-container, ul, .content-container, .img-post-container, .post-flex-container, .post-user-info {
     display: flex;
 }
 
@@ -68,6 +68,7 @@ li:hover {
 
 main {
     background-color: #14161d;
+    height: auto;
 }
 
 .content-container {
@@ -137,6 +138,7 @@ button {
     height: auto;
     padding: 15px;
     border-radius: 5px;
+    color: black;
 }
 
 .modal-picture {
@@ -167,4 +169,19 @@ button {
 
 #modal.hidden, .modal-picture.hidden, .modal-content.hidden {
     display: none;
+}
+
+.post-pfp {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.post-text {
+    color: #000;
+    font-size: 18px;
+}
+
+.photo-name {
+    color: #fff;
 }

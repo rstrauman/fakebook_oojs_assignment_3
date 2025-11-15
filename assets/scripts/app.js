@@ -12,6 +12,7 @@ let modalName = select('#modal-name');
 let modalContent = select('.modal-content');
 let modalPicture = select('.modal-picture');
 let postsContainer = select('.post-flex-container');
+let photoName = select('.photo-name');
 
 let modalIsOpen = false;
 
@@ -28,18 +29,45 @@ function openModal(){
 }
 
 function post() {
-    if(textInput.value.trim() !== "") {
-        let post = document.createElement('div');
-        post.classList.add('post-container');
-        postsContainer.appendChild(post);
-        
-        let postText = document.createElement('p');
-        postText.value = textInput;
-        postText.appendChild(post);
-    }
+    let text = textInput.value.trim();
+    let imageFile = photoUpload.files[0];
 
-    // return;
+    if(!text && !imageFile) return; 
+
+        let postDiv = document.createElement('div');
+        postDiv.classList.add('post-container');
+        
+        let postProfileInfo = document.createElement('div');
+        postProfileInfo.classList.add('post-user-info');
+        postProfileInfo.innerHTML = `
+            <img src="./assets/media/sunset.jpeg" class="post-pfp">
+        `;
+        postDiv.appendChild(postProfileInfo);
+
+        if(text) {
+            let postText = document.createElement('div');
+            postText.classList.add('post-text');
+            postText.textContent = text;
+            postDiv.appendChild(postText);
+        }
+
+        if(imageFile) {
+            const image = document.createElement('img');
+            image.classList.add('post-image');
+            image.src = URL.createObjectURL(imageFile);
+            postDiv.appendChild(image);
+        }
+        postsContainer.prepend(postDiv);
+        textInput.value = "";
+        photoUpload.value = "";
 }
 
 if(!modalIsOpen) listen('click', profilePic, openModal);
 listen('click', postButton, post);
+listen('change', photoUpload, () => {
+    if(photoUpload.files.length > 0) {
+        photoName.textContent = photoUpload.files[0].name;
+    } else {
+        photoName.textContent = "";
+    }
+});
