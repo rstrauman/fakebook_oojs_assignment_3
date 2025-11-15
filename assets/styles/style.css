@@ -4,7 +4,7 @@
 /*           Container               */
 /*************************************/
 
-.header-container, ul, .content-container, .img-post-container, .post-flex-container {
+.header-container, ul, .content-container, .img-post-container, .post-flex-containerm\, .post-user-info {
     display: flex;
 }
 
@@ -74,6 +74,7 @@ main {
     flex-direction: column;
     justify-content: center;
     gap: 40px;
+    padding-top: 40px;
 }
 
 form {
