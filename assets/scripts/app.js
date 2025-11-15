@@ -13,11 +13,19 @@ let modalContent = select('.modal-content');
 let modalPicture = select('.modal-picture');
 let postsContainer = select('.post-flex-container');
 let photoName = select('.photo-name');
+let closeModalBtn = select('#close-modal');
+let modalID = getElement("modal-id");
+// let modalName = getElement("modal-id");
+let modalUserName = getElement("modal-user-name");
+let modalEmail = getElement("modal-email");
+let modalPages = getElement("modal-pages");
+let modalGroups = getElement("modal-groups");
+let modalMonetize = getElement("modal-monetize");
 
 let modalIsOpen = false;
 
 const subscriber = new Subscriber (
-    676767, 'John', 'apple_bottom_jeans_71', 'john_cabbel@gmail.com', 10, 2, true
+    676767, 'John Cabbel', 'apple_bottom_jeans_71', 'john_cabbel@gmail.com', 10, 2, true
 )
 
 function openModal(){
@@ -26,6 +34,19 @@ function openModal(){
     modal.classList.remove('hidden');
     modalContent.classList.remove('hidden');
     modalPicture.classList.remove('hidden');
+    modalID.textContent = `ID: ${subscriber.id}`;
+    modalName.textContent = `Name: ${subscriber.name}`;
+    modalUserName.textContent = `Username: ${subscriber.userName}`;
+    modalEmail.textContent = `Email: ${subscriber.email}`;
+    modalPages.textContent = `Pages: ${subscriber.pages}`;
+    modalGroups.textContent = `Groups: ${subscriber.groups}`;
+    modalMonetize.textContent = `Can Monetize: ${subscriber.canMonetize}`;
+}
+
+function closeModal() {
+    modal.classList.add('hidden');
+    modalContent.classList.add('hidden');
+    modalPicture.classList.add('hidden');
 }
 
 function post() {
@@ -41,6 +62,7 @@ function post() {
         postProfileInfo.classList.add('post-user-info');
         postProfileInfo.innerHTML = `
             <img src="./assets/media/sunset.jpeg" class="post-pfp">
+            <div class="post-user-name">${subscriber.name}</div>
         `;
         postDiv.appendChild(postProfileInfo);
 
@@ -62,7 +84,8 @@ function post() {
         photoUpload.value = "";
 }
 
-if(!modalIsOpen) listen('click', profilePic, openModal);
+listen('click', profilePic, openModal);
+listen('click', closeModalBtn, closeModal);
 listen('click', postButton, post);
 listen('change', photoUpload, () => {
     if(photoUpload.files.length > 0) {
