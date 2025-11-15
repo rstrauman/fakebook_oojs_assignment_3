@@ -34,13 +34,16 @@ function openModal(){
     modal.classList.remove('hidden');
     modalContent.classList.remove('hidden');
     modalPicture.classList.remove('hidden');
-    modalID.textContent = `ID: ${subscriber.id}`;
-    modalName.textContent = `Name: ${subscriber.name}`;
-    modalUserName.textContent = `Username: ${subscriber.userName}`;
-    modalEmail.textContent = `Email: ${subscriber.email}`;
-    modalPages.textContent = `Pages: ${subscriber.pages}`;
-    modalGroups.textContent = `Groups: ${subscriber.groups}`;
-    modalMonetize.textContent = `Can Monetize: ${subscriber.canMonetize}`;
+
+    const userInfo = subscriber.getInfo();
+
+    modalID.textContent = `ID: ${userInfo.id}`;
+    modalName.textContent = `Name: ${userInfo.name}`;
+    modalUserName.textContent = `Username: ${userInfo.userName}`;
+    modalEmail.textContent = `Email: ${userInfo.email}`;
+    modalPages.textContent = `Pages: ${userInfo.pages}`;
+    modalGroups.textContent = `Groups: ${userInfo.groups}`;
+    modalMonetize.textContent = `Can Monetize: ${userInfo.canMonetize}`;
 }
 
 function closeModal() {
@@ -79,9 +82,18 @@ function post() {
             image.src = URL.createObjectURL(imageFile);
             postDiv.appendChild(image);
         }
+
+        let postDate = document.createElement('div');
+        postDate.classList.add('post-date');
+        let now = new Date();
+        postDate.textContent = now.toLocaleDateString();
+        postDiv.appendChild(postDate);
+
+
         postsContainer.prepend(postDiv);
         textInput.value = "";
         photoUpload.value = "";
+        photoName.textContent = "";
 }
 
 listen('click', profilePic, openModal);
